@@ -4,13 +4,15 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-**Self-driving laboratory framework for autonomous pharmaceutical research**
+**Self-driving laboratory framework for closed-loop experimental optimization**
 
-A comprehensive Python framework for closed-loop optimization in drug discovery laboratories. Integrates Bayesian optimization, robotic automation, and analytical instrumentation to enable autonomous experimentation that operates continuously without human intervention.
+An open-source Python framework for designing, simulating, and analyzing self-driving laboratory (SDL) workflows. The framework combines Bayesian optimization, Gaussian-process surrogate modeling, acquisition-function-guided experiment selection, campaign orchestration, and experiment tracking to support reproducible closed-loop experimental optimization
+ 
+The current release focuses on SDL workflow simulation, educational demonstrations, and computational prototyping. The included examples illustrate autonomous enzyme optimization workflows and campaign-level reporting. Physical laboratory deployment requires validated experiment executors, instrument-control interfaces, safety systems, and independent experimental validation
 
 ---
 
-## 🚀 Overview
+## Overview
 
 Traditional pharmaceutical research relies on manual experimentation where scientists design, execute, and analyze experiments sequentially. This approach is time-intensive, resource-heavy, and struggles with high-dimensional parameter spaces. The Autonomous Drug Discovery Lab addresses these limitations by implementing a self-driving laboratory (SDL) that:
 
@@ -18,36 +20,70 @@ Traditional pharmaceutical research relies on manual experimentation where scien
 - **Executes experiments autonomously** through integrated robotics and analytical instruments  
 - **Analyzes results in real-time** with automated data processing pipelines
 - **Makes decisions** about next experiments based on accumulating data
-- **Operates continuously** 24/7 without human intervention
-- **Achieves convergence** with 85-95% fewer experiments than traditional methods
+- **Supports autonomous and semi-autonomous closed-loop optimization workflows** through user-defined experiment executors and result-analysis pipelines
+- **Demonstration workflows** illustrate how adaptive Bayesian optimization can reduce the number of experiments required relative to exhaustive grid-search approaches in simulated parameter spaces
 
+## Scope and Limitations
+
+The Autonomous Drug Discovery Lab repository provides a computational framework for closed-loop experimental optimization using self-driving laboratory principles
+
+The current version includes:
+
+- **Bayesian optimization workflows**
+- **Gaussian-process surrogate modeling**
+- **Acquisition-function-guided experiment selection**
+- **Campaign orchestration**
+- **Tutorial examples**
+- **Simulated enzyme optimization workflows**
+- **Campaign reporting and visualization**
+
+The repository should not be interpreted as a fully validated autonomous drug-discovery platform
+
+Examples included in the repository are primarily simulation-based demonstrations intended for education, workflow prototyping, and reproducibility-focused research
+
+Users deploying the framework in physical laboratory environments are responsible for validation of instrument interfaces, optimization outputs, data integrity procedures, quality-control logic, and safety systems
+
+
+## Simulation Versus Physical Experiments
+
+The bundled enzyme optimization campaigns demonstrate expected behavior of closed-loop optimization workflows using simulated experimental systems
+
+These demonstrations are intended to show:
+
+- Bayesian optimization logic
+- Campaign orchestration
+- Experiment selection
+- Result analysis
+- Visualization
+- Data export
+
+Physical laboratory adoption requires validated instrument interfaces, independent experimental confirmation of optimized conditions, and documented safety procedures
+
+Repository examples should therefore be interpreted as workflow demonstrations unless otherwise stated
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 🧠 Intelligent Experiment Design
+### Intelligent Experiment Design
 - Bayesian optimization for efficient parameter space exploration
 - Active learning strategies (Expected Improvement, UCB, Probability of Improvement)
 - Multi-objective optimization support
 - Constraint handling for practical experimental limitations
 - Adaptive exploration-exploitation balancing
 
-### 🤖 Laboratory Automation Integration
+### Laboratory Automation Integration Framework
 - Unified interface for diverse laboratory instruments
-- Support for liquid handlers (Tecan, Hamilton, Opentrons)
-- Microplate reader integration (BMG, Molecular Devices)
-- LC-MS system integration (Agilent, Waters, Thermo)
-- Robotic workcell coordination
-- Temperature and pH controller integration
+- Interface patterns and examples for connecting liquid handlers, analytical instruments, and laboratory automation systems through user-defined integrations
+- Actual instrument support depends on implementation of communication layers by the user
 
-### 📊 Real-Time Analytics
+### Real-Time Analytics
 - Automated data processing and quality control
 - Statistical validation and confidence intervals
 - Response surface visualization
 - Parameter importance analysis
 - Performance metric tracking
 
-### 📝 Complete Provenance Tracking
+### Complete Provenance Tracking
 - Comprehensive logging of all experimental decisions
 - Full reproducibility with experiment metadata
 - Automated report generation
@@ -55,7 +91,7 @@ Traditional pharmaceutical research relies on manual experimentation where scien
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -105,7 +141,7 @@ redis>=4.0.0    # For distributed computing
 
 ---
 
-## 🎯 Quick Example
+## Quick Example
 
 ```python
 from sdl_core.orchestrator import SDLOrchestrator, OptimizationConfig
@@ -144,7 +180,7 @@ print(f"Optimal conditions: {results['best_result']}")
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### Protocols (Current Protocols Format)
 
@@ -175,13 +211,17 @@ Publication-ready protocols for common SDL workflows:
    - Error recovery and fault tolerance
    - Safety systems and monitoring
 
-### Case Studies
+### Demonstration Workflows
 
-Real-world applications with validation data:
+The current repository includes simulation-based workflows demonstrating:
 
-- **[Enzyme Optimization Case Study](docs/case_studies/case_study_enzyme_optimization.md)** - Optimization of therapeutic enzyme production conditions, 92% experiment reduction
-- **[Lead Optimization Campaign](docs/case_studies/case_study_lead_optimization.md)** - Multi-objective optimization of drug candidate properties
-- **[Validation Metrics](docs/case_studies/validation_metrics.md)** - Comprehensive performance analysis across 20+ campaigns
+- Autonomous enzyme optimization
+- Closed-loop experimental optimization
+- Campaign reporting
+- Bayesian optimization strategies
+- Parameter-importance analysis
+
+Additional experimental validation datasets may be incorporated in future releases
 
 ### API Reference
 
@@ -191,7 +231,7 @@ Real-world applications with validation data:
 
 ---
 
-## 🔬 Supported Applications
+## Supported Applications
 
 ### Drug Discovery
 - Lead compound optimization
@@ -219,9 +259,11 @@ Real-world applications with validation data:
 
 ---
 
-## 🏆 Performance Metrics
+## Performance Metrics
 
-Based on 20+ validated optimization campaigns:
+Illustrative comparison showing potential efficiency improvements achievable through adaptive closed-loop optimization when compared against exhaustive parameter-space searches
+
+Values should be interpreted as demonstration or simulation-based examples unless supported by independently validated experimental datasets
 
 | Metric | Traditional | SDL | Improvement |
 |--------|------------|-----|-------------|
@@ -234,7 +276,7 @@ Based on 20+ validated optimization campaigns:
 
 ---
 
-## 🔗 Integration with Existing Tools
+## Integration with Existing Tools
 
 This SDL framework integrates seamlessly with other tools in the automation ecosystem:
 
@@ -271,7 +313,7 @@ def integrated_experiment(params):
 
 ---
 
-## 📖 Citation
+## Citation
 
 If you use this framework in your research, please cite:
 
@@ -287,18 +329,13 @@ If you use this framework in your research, please cite:
 ```
 
 ### Publications
-
-Protocols published in peer-reviewed journals:
-
-1. **Ajayi, O.O.** (2025). "Autonomous Closed-Loop Optimization for Enzymatic Reaction Conditions Using Self-Driving Laboratory Technology." *Current Protocols in Chemical Biology*. (In press)
-
-2. **Ajayi, O.O.** (2025). "High-Throughput ADMET Screening with Integrated Bayesian Optimization and Laboratory Automation." *Current Protocols in Chemical Biology*. (In press)
+Protocol-style drafts are included to document self-driving laboratory workflows and may serve as the foundation for future protocol and methods publications
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! This project aims to advance autonomous experimentation in pharmaceutical research.
+Contributions are welcome! This project aims to advance autonomous experimentation in pharmaceutical research
 
 ### How to Contribute
 
@@ -320,13 +357,13 @@ Contributions are welcome! This project aims to advance autonomous experimentati
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👤 Author
+## Author
 
 **Oluwaseun O. Ajayi**
 
@@ -347,7 +384,7 @@ Chemistry PhD Researcher specializing in:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - University of Georgia Chemistry Department for research infrastructure
 - Pharmaceutical industry co-op program for real-world validation
@@ -356,7 +393,7 @@ Chemistry PhD Researcher specializing in:
 
 ---
 
-## 📊 Project Statistics
+## Project Statistics
 
 ![GitHub stars](https://img.shields.io/github/stars/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab?style=social)
@@ -364,42 +401,61 @@ Chemistry PhD Researcher specializing in:
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 ### Version 1.0 (Current)
-- ✅ Core Bayesian optimization engine
-- ✅ Basic instrument integration framework
-- ✅ Example workflows and documentation
-- ✅ Publication-ready protocols
+-  Core Bayesian optimization engine
+-  Basic instrument integration framework
+-  Example workflows and documentation
+-  Publication-ready protocols
 
 ### Version 1.1 (Q1 2025)
-- 🔄 Multi-objective optimization
-- 🔄 Advanced constraint handling
-- 🔄 Real-time experiment monitoring dashboard
-- 🔄 Cloud deployment support
+-  Multi-objective optimization
+-  Advanced constraint handling
+-  Real-time experiment monitoring dashboard
+-  Cloud deployment support
 
 ### Version 2.0 (Q2 2025)
-- 📋 Distributed SDL coordination
-- 📋 Active learning with neural networks
-- 📋 Automated literature integration
-- 📋 Transfer learning across campaigns
+-  Distributed SDL coordination
+-  Active learning with neural networks
+-  Automated literature integration
+-  Transfer learning across campaigns
 
 ---
 
-## ⚡ Quick Links
+## Quick Links
 
-- [📖 Full Documentation](docs/)
-- [🧪 Example Notebooks](examples/notebooks/)
-- [📊 Case Studies](docs/case_studies/)
-- [🐛 Report Issues](https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/issues)
-- [💬 Discussions](https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/discussions)
+- [ Full Documentation](docs/)
+- [ Example Notebooks](examples/notebooks/)
+- [ Case Studies](docs/case_studies/)
+- [ Report Issues](https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/issues)
+- [ Discussions](https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/discussions)
 
 ---
 
 <div align="center">
 
-**Transforming pharmaceutical research through autonomous experimentation**
+**Advancing reproducible experimental optimization through self-driving laboratory workflows**
 
-Made with ❤️ for the scientific community
+## Scientific Software Contribution
+
+The primary contribution of this repository is a reusable software framework for closed-loop experimental optimization
+
+Key implemented capabilities include:
+
+- Gaussian-process surrogate modeling
+- Expected Improvement acquisition
+- Probability of Improvement acquisition
+- Upper Confidence Bound acquisition
+- Latin Hypercube experimental design
+- Constraint-aware parameter spaces
+- Campaign orchestration
+- Parameter importance estimation
+- Optimization visualization
+- Reproducible campaign reporting
+
+The framework is intended to help researchers understand, prototype, and extend self-driving laboratory workflows
+
+Made for the scientific community
 
 </div>

@@ -332,6 +332,24 @@ If you use this framework in your research, please cite:
 Protocol-style drafts are included to document self-driving laboratory workflows and may serve as the foundation for future protocol and methods publications
 
 ---
+## Scientific Software Contribution
+
+The primary contribution of this repository is a reusable software framework for closed-loop experimental optimization
+
+Key implemented capabilities include:
+
+- Gaussian-process surrogate modeling
+- Expected Improvement acquisition
+- Probability of Improvement acquisition
+- Upper Confidence Bound acquisition
+- Latin Hypercube experimental design
+- Constraint-aware parameter spaces
+- Campaign orchestration
+- Parameter importance estimation
+- Optimization visualization
+- Reproducible campaign reporting
+
+The framework is intended to help researchers understand, prototype, and extend self-driving laboratory workflows
 
 ## Contributing
 
@@ -435,27 +453,6 @@ Chemistry PhD Researcher specializing in:
 
 <div align="center">
 
-**Advancing reproducible experimental optimization through self-driving laboratory workflows**
-
-## Scientific Software Contribution
-
-The primary contribution of this repository is a reusable software framework for closed-loop experimental optimization
-
-Key implemented capabilities include:
-
-- Gaussian-process surrogate modeling
-- Expected Improvement acquisition
-- Probability of Improvement acquisition
-- Upper Confidence Bound acquisition
-- Latin Hypercube experimental design
-- Constraint-aware parameter spaces
-- Campaign orchestration
-- Parameter importance estimation
-- Optimization visualization
-- Reproducible campaign reporting
-
-The framework is intended to help researchers understand, prototype, and extend self-driving laboratory workflows
-
-Made for the scientific community
-
 </div>
+
+**Advancing reproducible experimental optimization through self-driving laboratory workflows**

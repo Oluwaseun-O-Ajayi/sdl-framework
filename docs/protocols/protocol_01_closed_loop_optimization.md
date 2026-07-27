@@ -8,7 +8,13 @@ Department of Chemistry, University of Georgia, Athens, GA, USA
 
 ## ABSTRACT
 
-Self-driving laboratories (SDLs) represent a paradigm shift in pharmaceutical research by enabling autonomous experimentation through integration of robotics, analytical instrumentation, and machine learning. This protocol describes a complete workflow for closed-loop optimization of enzymatic reaction conditions using Bayesian optimization within an SDL framework. The method systematically explores experimental parameter space, autonomously designs and executes experiments, analyzes results in real-time, and iteratively refines conditions to identify optimal parameters. Compared to traditional manual optimization requiring hundreds of experiments or design-of-experiments approaches, this SDL protocol achieves convergence with 90% fewer experiments while operating continuously without human intervention. The protocol is generalizable to diverse optimization problems in drug discovery including ADMET screening, assay development, and lead compound optimization. Complete execution requires 2-3 days of autonomous operation, yielding statistically validated optimal conditions with comprehensive experimental provenance.
+Self-driving laboratories (SDLs) represent a paradigm shift in pharmaceutical research by enabling autonomous experimentation through integration of robotics, analytical instrumentation, and machine learning.
+This protocol describes a complete workflow for closed-loop optimization of enzymatic reaction conditions using Bayesian optimization within an SDL framework.
+The method systematically explores experimental parameter space, autonomously designs and executes experiments, analyzes results in real-time, and iteratively refines conditions to identify optimal parameters.
+This protocol describes a computational workflow for implementing Bayesian-optimization-driven closed-loop experimental optimization within a self-driving laboratory framework.
+The protocol integrates parameter-space definition, experiment execution, result analysis, Gaussian-process surrogate modeling, and acquisition-function-guided experiment selection into a reproducible workflow suitable for simulation environments and adaptable laboratory-automation settings.
+The protocol is demonstrated using enzyme optimization examples and may be adapted to assay development, ADMET screening, formulation optimization, and other experimental optimization tasks.
+The protocol is generalizable to diverse optimization problems in drug discovery including ADMET screening, assay development, and lead compound optimization. Complete execution requires 2-3 days of autonomous operation, yielding statistically validated optimal conditions with comprehensive experimental provenance.
 
 **Keywords:** self-driving laboratory, Bayesian optimization, autonomous experimentation, enzyme kinetics, lab automation, active learning, closed-loop optimization
 

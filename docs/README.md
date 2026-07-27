@@ -1,6 +1,6 @@
 # Autonomous Drug Discovery Lab - Documentation
 
-## 📚 Contents
+## Contents
 
 ### Protocols
 Publication-ready protocols for *Current Protocols* submission:
@@ -26,7 +26,7 @@ Publication-ready protocols for *Current Protocols* submission:
 
 ---
 
-## 🚀 Quick Links
+## Quick Links
 
 - [Main README](../README.md)
 - [Quick Start Guide](../QUICKSTART.md)

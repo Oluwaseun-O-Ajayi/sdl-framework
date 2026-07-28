@@ -1,31 +1,31 @@
-# self-driving laboratory framework
+# SDL Framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-**Self-driving laboratory framework for closed-loop experimental optimization**
+**SDL Framework for closed-loop experimental optimization**
 
 An open-source Python framework for designing, simulating, and analyzing self-driving laboratory (SDL) workflows. The framework combines Bayesian optimization, Gaussian-process surrogate modeling, acquisition-function-guided experiment selection, campaign orchestration, and experiment tracking to support reproducible closed-loop experimental optimization
  
-The current release focuses on SDL workflow simulation, educational demonstrations, and computational prototyping. The included examples illustrate autonomous enzyme optimization workflows and campaign-level reporting. Physical laboratory deployment requires validated experiment executors, instrument-control interfaces, safety systems, and independent experimental validation
+The current release focuses on SDL workflow simulation, educational demonstrations, and computational prototyping. The included examples illustrate simulated enzyme optimization workflows, reproducible closed-loop optimization campaigns, and campaign-level reporting. Physical laboratory deployment requires validated experiment executors, instrument-control interfaces, safety systems, and independent experimental validation
 
 ---
 
 ## Overview
 
-Traditional pharmaceutical research relies on manual experimentation where scientists design, execute, and analyze experiments sequentially. This approach is time-intensive, resource-heavy, and struggles with high-dimensional parameter spaces. The self-driving laboratory framework addresses these limitations by implementing a self-driving laboratory (SDL) that:
+Traditional pharmaceutical research relies on manual experimentation where scientists design, execute, and analyze experiments sequentially. This approach is time-intensive, resource-heavy, and struggles with high-dimensional parameter spaces. SDL Framework addresses these challenges by providing reusable software components for closed-loop experimental optimization and self-driving laboratory workflow simulation:
 
 - **Designs experiments intelligently** using Bayesian optimization and active learning
-- **Executes experiments autonomously** through integrated robotics and analytical instruments  
+- **Supports experiment execution** through user-defined experiment executors and integration interfaces 
 - **Analyzes results in real-time** with automated data processing pipelines
 - **Makes decisions** about next experiments based on accumulating data
-- **Supports autonomous and semi-autonomous closed-loop optimization workflows** through user-defined experiment executors and result-analysis pipelines
-- **Demonstration workflows** illustrate how adaptive Bayesian optimization can reduce the number of experiments required relative to exhaustive grid-search approaches in simulated parameter spaces
+- **Supports reproducible closed-loop optimization workflows** through user-defined experiment executors and result-analysis pipelines
+- **Demonstration workflows** illustrate adaptive Bayesian optimization strategies in representative simulated parameter spaces
 
 ## Scope and Limitations
 
-The self-driving laboratory framework repository provides a computational framework for closed-loop experimental optimization using self-driving laboratory principles
+The SDL Framework repository provides a computational framework for closed-loop experimental optimization using self-driving laboratory principles
 
 The current version includes:
 
@@ -37,7 +37,7 @@ The current version includes:
 - **Simulated enzyme optimization workflows**
 - **Campaign reporting and visualization**
 
-The repository should not be interpreted as a fully validated autonomous drug-discovery platform
+The repository should not be interpreted as a validated autonomous laboratory platform, drug-discovery system, or production laboratory execution environment
 
 Examples included in the repository are primarily simulation-based demonstrations intended for education, workflow prototyping, and reproducibility-focused research
 
@@ -102,8 +102,8 @@ Repository examples should therefore be interpreted as workflow demonstrations u
 
 ```bash
 # Clone the repository
-git clone https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab.git
-cd autonomous-drug-discovery-lab
+git clone https://github.com/Oluwaseun-O-Ajayi/sdl-framework.git
+cd sdl-framework
 
 # Install dependencies
 pip install -r requirements.txt
@@ -182,17 +182,17 @@ print(f"Optimal conditions: {results['best_result']}")
 
 ## Documentation
 
-### Protocols (Current Protocols Format)
+### Protocol-Style Workflows
 
 Publication-ready protocols for common SDL workflows:
 
 1. **[Closed-Loop Optimization](docs/protocols/protocol_01_closed_loop_optimization.md)**
-   - Autonomous optimization of enzymatic reactions
+   - Closed-loop optimization of enzymatic reactions
    - Bayesian optimization implementation
-   - 2-3 day autonomous campaigns
+   - Example optimization campaigns
 
 2. **[High-Throughput ADMET Screening](docs/protocols/protocol_02_automated_admet_screening.md)**
-   - Automated drugability assessment
+   - Reproducible compound assessment workflow
    - Multi-parameter compound profiling
    - Integration with computational predictions
 
@@ -202,7 +202,7 @@ Publication-ready protocols for common SDL workflows:
    - High-throughput kinetic characterization
 
 4. **[LC-MS Quantification Pipeline](docs/protocols/protocol_04_lcms_quantification_pipeline.md)**
-   - Autonomous sample preparation
+   - Workflow simulation for sample-processing pipelines
    - Automated calibration and quantification
    - Quality control and validation
 
@@ -215,13 +215,14 @@ Publication-ready protocols for common SDL workflows:
 
 The current repository includes simulation-based workflows demonstrating:
 
-- Autonomous enzyme optimization
 - Closed-loop experimental optimization
-- Campaign reporting
 - Bayesian optimization strategies
+- Campaign orchestration
+- Experiment selection workflows
 - Parameter-importance analysis
+- Optimization reporting and visualization
 
-Additional experimental validation datasets may be incorporated in future releases
+Additional validation datasets may be incorporated in future releases
 
 ### API Reference
 
@@ -259,20 +260,13 @@ Additional experimental validation datasets may be incorporated in future releas
 
 ---
 
-## Performance Metrics
+## Performance Assessment
 
-Illustrative comparison showing potential efficiency improvements achievable through adaptive closed-loop optimization when compared against exhaustive parameter-space searches
+The repository includes simulation-based examples demonstrating optimization workflow behavior, campaign orchestration, adaptive experiment selection, and optimization reporting
 
-Values should be interpreted as demonstration or simulation-based examples unless supported by independently validated experimental datasets
+Performance characteristics should be evaluated independently for specific experimental systems and deployment environments
 
-| Metric | Traditional | SDL | Improvement |
-|--------|------------|-----|-------------|
-| **Experiments Required** | 500-1000 | 30-50 | **90-95%** reduction |
-| **Time to Completion** | 4-8 weeks | 2-4 days | **85-90%** faster |
-| **Human Time Investment** | 120-200 hrs | 8-12 hrs | **94%** reduction |
-| **Reproducibility (CV)** | 15-25% | 3-8% | **3-5×** improvement |
-| **Parameter Space Coverage** | Limited | Comprehensive | Full exploration |
-| **Cost per Optimization** | $15,000-$30,000 | $2,000-$5,000 | **80-85%** savings |
+No claims of experimental efficiency gains, cost reductions, workflow acceleration, or laboratory performance improvements are made without independent validation
 
 ---
 
@@ -318,12 +312,12 @@ def integrated_experiment(params):
 If you use this framework in your research, please cite:
 
 ```bibtex
-@software{ajayi2025autonomous,
-  title={self-driving laboratory framework: A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles},
+@software{ajayi2025sdlframework,
+  title={SDL Framework: A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles},
   author={Ajayi, Oluwaseun O.},
   year={2025},
   publisher={GitHub},
-  url={https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab},
+  url={https://github.com/Oluwaseun-O-Ajayi/sdl-framework},
   doi={10.5281/zenodo.XXXXXXX}
 }
 ```
@@ -353,7 +347,7 @@ The framework is intended to help researchers understand, prototype, and extend 
 
 ## Contributing
 
-Contributions are welcome! This project aims to advance autonomous experimentation in pharmaceutical research
+Contributions are welcome! This project aims to support reproducible research and software development for closed-loop experimental optimization and self-driving laboratory workflows
 
 ### How to Contribute
 
@@ -392,7 +386,7 @@ Chemistry PhD Researcher specializing in:
 - Laboratory Automation
 - Computational Modeling
 
-**Research Interests:** Self-driving laboratories, autonomous experimentation, pharmaceutical research automation, machine learning in chemistry
+**Research Interests:** Self-driving laboratories, laboratory automation, closed-loop experimental optimization, scientific software, machine learning in chemistry
 
 **Connect:**
 - GitHub: [@Oluwaseun-O-Ajayi](https://github.com/Oluwaseun-O-Ajayi)
@@ -405,7 +399,6 @@ Chemistry PhD Researcher specializing in:
 ## Acknowledgments
 
 - University of Georgia Chemistry Department for research infrastructure
-- Pharmaceutical industry co-op program for real-world validation
 - Laboratory automation community for best practices
 - Open-source scientific computing community (NumPy, SciPy, scikit-learn)
 
@@ -413,9 +406,9 @@ Chemistry PhD Researcher specializing in:
 
 ## Project Statistics
 
-![GitHub stars](https://img.shields.io/github/stars/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Oluwaseun-O-Ajayi/sdl-framework?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Oluwaseun-O-Ajayi/sdl-framework?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/Oluwaseun-O-Ajayi/sdl-framework?style=social)
 
 ---
 
@@ -446,8 +439,8 @@ Chemistry PhD Researcher specializing in:
 - [ Full Documentation](docs/)
 - [ Example Notebooks](examples/notebooks/)
 - [ Case Studies](docs/case_studies/)
-- [ Report Issues](https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/issues)
-- [ Discussions](https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/discussions)
+- [ Report Issues](https://github.com/Oluwaseun-O-Ajayi/sdl-framework/issues)
+- [ Discussions](https://github.com/Oluwaseun-O-Ajayi/sdl-framework/discussions)
 
 ---
 

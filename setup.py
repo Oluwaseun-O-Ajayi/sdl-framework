@@ -1,6 +1,6 @@
 """
-Autonomous Drug Discovery Lab
-Self-driving laboratory framework for pharmaceutical research
+SDL Framework:
+A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles
 """
 
 from setuptools import setup, find_packages
@@ -11,18 +11,18 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
-    name="autonomous-drug-discovery-lab",
+    name="Self-Driving Laboratory Framework",
     version="1.0.0",
     author="Oluwaseun O. Ajayi",
     author_email="seunolanikeajayi@gmail.com",
-    description="Self-driving laboratory framework for autonomous pharmaceutical research",
+    description="A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab",
+    url="https://github.com/Oluwaseun-O-Ajayi/sdl-framework",
     project_urls={
-        "Bug Tracker": "https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/issues",
-        "Documentation": "https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab/docs",
-        "Source Code": "https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab",
+        "Bug Tracker": "https://github.com/Oluwaseun-O-Ajayi/sdl-framework/issues",
+        "Documentation": "https://github.com/Oluwaseun-O-Ajayi/sdl-framework/docs",
+        "Source Code": "https://github.com/Oluwaseun-O-Ajayi/sdl-framework",
     },
     packages=find_packages(exclude=["tests", "tests.*", "examples", "docs"]),
     classifiers=[

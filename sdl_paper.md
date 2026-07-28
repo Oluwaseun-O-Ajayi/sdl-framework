@@ -17,7 +17,7 @@ authors:
 affiliations:
  - name: Department of Chemistry, University of Georgia, Athens, Georgia, USA
    index: 1
-date: 2026-XX-XX
+date: 2026-07-28
 bibliography: paper.bib
 ---
 

@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get started with the Autonomous Drug Discovery Lab in 10 minutes.
+Get started with the SDL Framework Lab in 10 minutes.
 
 ---
 
@@ -8,8 +8,8 @@ Get started with the Autonomous Drug Discovery Lab in 10 minutes.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab.git
-cd autonomous-drug-discovery-lab
+git clone https://github.com/Oluwaseun-O-Ajayi/SDL Framework-lab.git
+cd SDL Framework-lab
 
 # Create virtual environment (recommended)
 python -m venv venv
@@ -77,7 +77,7 @@ sdl = SDLOrchestrator(
     output_dir="my_optimization"
 )
 
-# Run autonomous optimization
+# Run SDL Framework optimization
 results = sdl.run_optimization_campaign()
 
 # Get optimal conditions
@@ -113,7 +113,7 @@ python examples/enzyme_optimization_example.py
 This demonstrates:
 - Simulated enzyme kinetics experiments
 - 4-parameter optimization (temperature, pH, substrate, enzyme)
-- ~40 autonomous experiments
+- ~40 SDL Framework experiments
 - Publication-ready visualizations
 - Complete data export
 
@@ -330,14 +330,14 @@ def safe_experiment(params):
 If you use this framework, please cite:
 
 ```bibtex
-@software{ajayi2025autonomous,
-  title={Autonomous Drug Discovery Lab},
+@software{ajayi2025SDL Framework,
+  title={SDL Framework Lab},
   author={Ajayi, Oluwaseun O.},
   year={2025},
-  url={https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab}
+  url={https://github.com/Oluwaseun-O-Ajayi/SDL Framework-lab}
 }
 ```
 
 ---
 
-**You're ready to start autonomous experimentation! 🚀**
+**You're ready to start SDL Framework experimentation!**

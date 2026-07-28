@@ -1,5 +1,5 @@
 ---
-title: 'A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles'
+title: 'SDL Framework: A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles'
 tags:
   - Python
   - self-driving laboratories

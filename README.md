@@ -1,4 +1,4 @@
-# Autonomous Drug Discovery Lab
+# self-driving laboratory framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -14,7 +14,7 @@ The current release focuses on SDL workflow simulation, educational demonstratio
 
 ## Overview
 
-Traditional pharmaceutical research relies on manual experimentation where scientists design, execute, and analyze experiments sequentially. This approach is time-intensive, resource-heavy, and struggles with high-dimensional parameter spaces. The Autonomous Drug Discovery Lab addresses these limitations by implementing a self-driving laboratory (SDL) that:
+Traditional pharmaceutical research relies on manual experimentation where scientists design, execute, and analyze experiments sequentially. This approach is time-intensive, resource-heavy, and struggles with high-dimensional parameter spaces. The self-driving laboratory framework addresses these limitations by implementing a self-driving laboratory (SDL) that:
 
 - **Designs experiments intelligently** using Bayesian optimization and active learning
 - **Executes experiments autonomously** through integrated robotics and analytical instruments  
@@ -25,7 +25,7 @@ Traditional pharmaceutical research relies on manual experimentation where scien
 
 ## Scope and Limitations
 
-The Autonomous Drug Discovery Lab repository provides a computational framework for closed-loop experimental optimization using self-driving laboratory principles
+The self-driving laboratory framework repository provides a computational framework for closed-loop experimental optimization using self-driving laboratory principles
 
 The current version includes:
 
@@ -319,7 +319,7 @@ If you use this framework in your research, please cite:
 
 ```bibtex
 @software{ajayi2025autonomous,
-  title={Autonomous Drug Discovery Lab: Self-Driving Laboratory Framework for Pharmaceutical Research},
+  title={self-driving laboratory framework: A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles},
   author={Ajayi, Oluwaseun O.},
   year={2025},
   publisher={GitHub},

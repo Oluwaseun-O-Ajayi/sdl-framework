@@ -10,20 +10,29 @@ authors:
     email: seunolanikeajayi@gmail.com
     affiliation: University of Georgia
 repository-code: >-
-  https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab
-url: 'https://github.com/Oluwaseun-O-Ajayi/autonomous-drug-discovery-lab'
+  https://github.com/Oluwaseun-O-Ajayi/SDL Framework
+url: 'https://github.com/Oluwaseun-O-Ajayi/SDL Framework'
 abstract: >-
-  Self-driving laboratory framework for autonomous pharmaceutical
-  research. Integrates Bayesian optimization, robotic automation,
-  and analytical instrumentation to enable closed-loop optimization
-  that operates continuously without human intervention.
+  SDL Framework is an open-source Python framework for
+  closed-loop experimental optimization using self-driving
+  laboratory principles. The framework provides reusable
+  components for experiment representation, Bayesian
+  optimization, acquisition-function-guided experiment
+  selection, campaign orchestration, and workflow simulation.
+  Example implementations demonstrate how adaptive
+  optimization workflows can be modeled, analyzed, and
+  reproduced within a transparent computational environment.
+  The framework is intended for education, prototyping,
+  and reproducibility-focused research involving
+  self-driving laboratory concepts.
 keywords:
-  - self-driving-labs
-  - laboratory-automation
-  - drug-discovery
+keywords:
+  - self-driving-laboratories
+  - closed-loop-optimization
   - bayesian-optimization
-  - autonomous-experimentation
-  - pharmaceutical-research
+  - experimental-design
+  - workflow-simulation
+  - scientific-software
 license: MIT
 version: 1.0.0
 date-released: '2025-01-09'

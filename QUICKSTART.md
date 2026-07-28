@@ -324,19 +324,25 @@ def safe_experiment(params):
 - **Examples**: More examples in `examples/notebooks/`
 
 ---
-
 ## Citation
 
-If you use this framework, please cite:
+If you use this framework in your research, please cite:
 
 ```bibtex
-@software{ajayi2025SDL Framework,
-  title={SDL Framework Lab},
-  author={Ajayi, Oluwaseun O.},
-  year={2025},
-  url={https://github.com/Oluwaseun-O-Ajayi/SDL Framework-lab}
+@software{ajayi2026sdlframework,
+  author = {Ajayi, Oluwaseun O.},
+  title = {SDL Framework},
+  version = {1.0.0},
+  year = {2026},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.21652612},
+  url = {https://doi.org/10.5281/zenodo.21652612}
 }
 ```
+
+### APA Style
+
+Ajayi, O. O. (2026). *SDL Framework* (Version 1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21652612
 
 ---
 

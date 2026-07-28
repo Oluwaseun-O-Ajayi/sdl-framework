@@ -1,31 +1,26 @@
 cff-version: 1.2.0
-title: SDL Framework
-message: >-
-  If you use this software in your research, please cite it
-  using the metadata from this file.
+message: "If you use this software in your research, please cite it using the metadata from this file."
+
+title: "SDL Framework"
+
 type: software
+
 authors:
-  - family-names: Ajayi
-    given-names: Oluwaseun O.
-    email: seunolanikeajayi@gmail.com
-    affiliation: University of Georgia
-repository-code: >-
-  https://github.com/Oluwaseun-O-Ajayi/SDL Framework
-url: 'https://github.com/Oluwaseun-O-Ajayi/SDL Framework'
-abstract: >-
-  SDL Framework is an open-source Python framework for
-  closed-loop experimental optimization using self-driving
-  laboratory principles. The framework provides reusable
-  components for experiment representation, Bayesian
-  optimization, acquisition-function-guided experiment
-  selection, campaign orchestration, and workflow simulation.
-  Example implementations demonstrate how adaptive
-  optimization workflows can be modeled, analyzed, and
-  reproduced within a transparent computational environment.
-  The framework is intended for education, prototyping,
-  and reproducibility-focused research involving
-  self-driving laboratory concepts.
-keywords:
+  - family-names: "Ajayi"
+    given-names: "Oluwaseun O."
+    email: "oluwaseun.ajayi@uga.edu"
+    affiliation: "University of Georgia"
+    orcid: "https://orcid.org/0000-0003-0040-7217"
+
+version: "1.0.0"
+doi: "10.5281/zenodo.21652612"
+date-released: "2026-07-28"
+
+repository-code: "https://github.com/Oluwaseun-O-Ajayi/sdl-framework"
+url: "https://github.com/Oluwaseun-O-Ajayi/sdl-framework"
+
+license: "MIT"
+
 keywords:
   - self-driving-laboratories
   - closed-loop-optimization
@@ -33,6 +28,14 @@ keywords:
   - experimental-design
   - workflow-simulation
   - scientific-software
-license: MIT
-version: 1.0.0
-date-released: '2025-01-09'
+
+abstract: >
+  SDL Framework is an open-source Python framework for
+  closed-loop experimental optimization using self-driving
+  laboratory principles. The framework provides reusable
+  components for experiment representation, Bayesian
+  optimization, acquisition-function-guided experiment
+  selection, campaign orchestration, and workflow simulation.
+  Example workflows demonstrate how adaptive optimization
+  strategies can be modeled, analyzed, and reproduced within
+  a transparent computational environment.

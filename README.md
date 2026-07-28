@@ -312,18 +312,30 @@ def integrated_experiment(params):
 If you use this framework in your research, please cite:
 
 ```bibtex
-@software{ajayi2025sdlframework,
-  title={SDL Framework: A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles},
-  author={Ajayi, Oluwaseun O.},
-  year={2025},
-  publisher={GitHub},
-  url={https://github.com/Oluwaseun-O-Ajayi/sdl-framework},
-  doi={10.5281/zenodo.XXXXXXX}
+@software{ajayi2026sdlframework,
+  author = {Ajayi, Oluwaseun O.},
+  title = {SDL Framework},
+  version = {1.0.0},
+  year = {2026},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.21652612},
+  url = {https://doi.org/10.5281/zenodo.21652612}
 }
 ```
 
-### Publications
-Protocol-style drafts are included to document self-driving laboratory workflows and may serve as the foundation for future protocol and methods publications
+### APA Style
+
+Ajayi, O. O. (2026). *SDL Framework* (Version 1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21652612
+
+## Publication
+
+Associated manuscript:
+
+Ajayi, O. O.
+
+SDL Framework: A Reproducible Python Framework for Closed-Loop Experimental Optimization Using Self-Driving Laboratory Principles
+
+Manuscript in preparation
 
 ---
 ## Scientific Software Contribution

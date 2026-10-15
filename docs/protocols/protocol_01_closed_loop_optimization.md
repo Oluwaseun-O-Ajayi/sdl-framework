@@ -45,8 +45,8 @@ The protocol is readily adapted to other optimization problems by modifying the 
 
 **Advantages:**
 
-- **Efficiency:** Achieves convergence with 85-95% fewer experiments than exhaustive screening
-- **Continuous operation:** Executes experiments 24/7 without human intervention
+- **Sample efficiency:** Model-guided selection can reach good conditions with fewer experiments than grid or one-factor-at-a-time screening; the size of the gain depends on the problem, noise level and budget and should be measured for each application
+- **Unattended operation:** When connected to validated instrument interfaces, the loop can run without manual decisions between experiments
 - **Reproducibility:** Complete digital record of all experimental decisions and results
 - **Scalability:** Handles high-dimensional parameter spaces intractable for manual optimization
 - **Adaptability:** Automatically adjusts strategy based on observed experimental landscape
@@ -85,7 +85,7 @@ This protocol describes autonomous optimization of enzymatic reaction conditions
   - NumPy, SciPy, pandas for data manipulation
   - scikit-learn for Gaussian process regression
   - Matplotlib, seaborn for visualization
-- Autonomous Drug Discovery Lab framework (`autonomous-drug-discovery-lab`)
+- SDL Framework (`sdl-framework`)
 - Instrument control software and APIs
 - Optional: Docker for containerized deployment
 
@@ -105,7 +105,7 @@ This protocol describes autonomous optimization of enzymatic reaction conditions
 
 #### 1. System Integration and Validation (Day 1: 4-6 hours)
 
-**1a.** Install and configure the Autonomous Drug Discovery Lab software framework on the control workstation.
+**1a.** Install and configure the SDL Framework on the control workstation.
 
 ```python
 pip install autonomous-drug-discovery-lab
@@ -346,10 +346,10 @@ df = sdl.export_data("optimization_results.csv")
 - Assess sensitivity to parameter variation
 - Identify critical parameters requiring tight control
 
-**7d.** Document final validated conditions with statistical confidence:
+**7d.** Document final validated conditions with statistical confidence. The block below shows the report format only; the values are illustrative, not measured results:
 
 ```
-Validated Optimal Conditions (n=6):
+Validated Optimal Conditions (n=6), illustrative format:
   Temperature:   37.2°C (36.8-37.6°C, 95% CI)
   pH:            7.42 (7.38-7.46, 95% CI)
   Substrate:     85 μM (81-89 μM, 95% CI)
@@ -437,11 +437,10 @@ A well-executed SDL optimization campaign yields:
 - Detection of constraint boundaries or feasibility limits
 
 **Efficiency metrics:**
-Compared to traditional approaches:
-- 85-95% reduction in experiments (40 vs. 1,000 for 4-parameter optimization)
-- 70-90% reduction in time (continuous autonomous operation)
-- Improved reproducibility (automated execution, complete provenance)
-- Enhanced statistical confidence (explicit uncertainty quantification)
+Report efficiency against a baseline run with the same number of experiments (for example, random or Latin hypercube sampling), not against an exhaustive grid. Provide:
+- Best value found as a function of the number of experiments, for the campaign and the baseline
+- Variation across repeated campaigns with different random seeds
+- A complete record of all experimental decisions and results
 
 **Publication-ready deliverables:**
 - Comprehensive experimental dataset with metadata

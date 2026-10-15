@@ -184,3 +184,5 @@ personal_notes/
 # Keep these private
 *_draft.md
 *_internal.md
+# keep the JOSS paper figure
+!paper/figure.png

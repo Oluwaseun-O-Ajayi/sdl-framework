@@ -1,18 +1,14 @@
 """
-Autonomous Drug Discovery Lab - Core Module
-
-Self-driving laboratory framework for pharmaceutical research
-combining Bayesian optimization with robotic automation.
+SDL Framework: closed-loop experimental optimization following self-driving laboratory principles.
 
 Author: Oluwaseun O. Ajayi
-Email: seunolanikeajayi@gmail.com
 License: MIT
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "Oluwaseun O. Ajayi"
 __license__ = "MIT"
-__email__ = "seunolanikeajayi@gmail.com"
+__email__ = "oluwaseun.ajayi@uga.edu"
 
 from .orchestrator import SDLOrchestrator, OptimizationConfig, Experiment
 from .experiment_designer import ExperimentDesigner, DesignSpace, AcquisitionFunction

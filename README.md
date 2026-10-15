@@ -93,53 +93,23 @@ Repository examples should therefore be interpreted as workflow demonstrations u
 
 ## Installation
 
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-- Git
-
-### Quick Start
+Requires Python 3.9 or later.
 
 ```bash
-# Clone the repository
 git clone https://github.com/Oluwaseun-O-Ajayi/sdl-framework.git
 cd sdl-framework
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Install the package
-pip install -e .
-
-# Run example
+pip install .            # or: pip install ".[test]" to include the test dependencies
 python examples/enzyme_optimization_example.py
 ```
 
-### Dependencies
+### Running the tests
 
-Core scientific computing:
-```
-numpy>=1.21.0
-scipy>=1.7.0
-pandas>=1.3.0
-scikit-learn>=1.0.0
+```bash
+pip install ".[test]"
+python -m pytest
 ```
 
-Visualization:
-```
-matplotlib>=3.4.0
-seaborn>=0.11.0
-plotly>=5.0.0
-```
-
-Optional (for full functionality):
-```
-jupyter>=1.0.0
-pymongo>=4.0.0  # For database integration
-redis>=4.0.0    # For distributed computing
-```
-
----
+The test suite checks the acquisition functions against their closed forms, verifies that initial designs and proposals respect bounds and constraints, confirms that seeded runs are reproducible, and runs short campaigns on a test function with a known optimum. Tests run automatically on Linux, macOS and Windows for every push.
 
 ## Quick Example
 
@@ -155,17 +125,23 @@ config = OptimizationConfig(
         'substrate_conc': (10.0, 200.0),
     },
     n_initial_experiments=10,
-    max_iterations=30
+    max_iterations=30,
+    random_state=0,
 )
 
 # Define experimental functions
+import math
+
 def run_experiment(params):
-    # Interface with your instruments here
-    result = plate_reader.measure(params)
-    return result
+    # Replace this simulated response with a call to your instrument or workflow.
+    activity = (math.exp(-((params['temperature'] - 37) / 8) ** 2)
+                * math.exp(-((params['pH'] - 7.4) / 1.0) ** 2)
+                * params['substrate_conc'] / (45 + params['substrate_conc']))
+    return {'activity': activity}
 
 def analyze_results(data):
-    return {'objective_value': calculate_activity(data)}
+    # Must return a dictionary containing 'objective_value'.
+    return {'objective_value': data['activity']}
 
 # Initialize and run SDL
 sdl = SDLOrchestrator(
@@ -270,42 +246,9 @@ No claims of experimental efficiency gains, cost reductions, workflow accelerati
 
 ---
 
-## Integration with Existing Tools
+## Related Repositories
 
-This SDL framework integrates seamlessly with other tools in the automation ecosystem:
-
-### Related Repositories
-
-From my automation toolkit:
-
-- **[drugability-toolkit](https://github.com/Oluwaseun-O-Ajayi/drugability-toolkit)** - ADMET prediction integration
-- **[enzymatic-kinetics-analyzer](https://github.com/Oluwaseun-O-Ajayi/enzymatic-kinetics-analyzer)** - Automated kinetic analysis
-- **[lcms-data-processor](https://github.com/Oluwaseun-O-Ajayi/lcms-data-processor)** - LC-MS data pipeline
-- **[robot-workcell-simulator](https://github.com/Oluwaseun-O-Ajayi/robot-workcell-simulator)** - Robot control interface
-- **[sample-tracking-database](https://github.com/Oluwaseun-O-Ajayi/sample-tracking-database)** - LIMS integration
-- **[assay-design-calculator](https://github.com/Oluwaseun-O-Ajayi/assay-design-calculator)** - Assay optimization
-
-### Example Integration
-
-```python
-from drugability_toolkit import ADMETPredictor
-from lcms_data_processor import LCMSAnalyzer
-from sdl_core.orchestrator import SDLOrchestrator
-
-# Combine tools in SDL workflow
-def integrated_experiment(params):
-    # Predict ADMET properties
-    predictions = ADMETPredictor().predict(compound)
-    
-    # If promising, run physical experiment
-    if predictions['drugability_score'] > 0.7:
-        result = lcms.quantify(params)
-        return result
-    
-    return {'skip': True}
-```
-
----
+The framework is independent of the following repositories by the same author, which address other steps of laboratory data workflows: [drugability-toolkit](https://github.com/Oluwaseun-O-Ajayi/drugability-toolkit), [enzymatic-kinetics-analyzer](https://github.com/Oluwaseun-O-Ajayi/enzymatic-kinetics-analyzer) and [lcms-data-processor](https://github.com/Oluwaseun-O-Ajayi/lcms-data-processor). Any of them can be called inside a user-supplied experiment or analysis function.
 
 ## Citation
 
@@ -357,29 +300,9 @@ Key implemented capabilities include:
 
 The framework is intended to help researchers understand, prototype, and extend self-driving laboratory workflows
 
-## Contributing
+## Contributing and Support
 
-Contributions are welcome! This project aims to support reproducible research and software development for closed-loop experimental optimization and self-driving laboratory workflows
-
-### How to Contribute
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes with tests
-4. Commit changes (`git commit -m 'Add amazing feature'`)
-5. Push to branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
-
-### Areas for Contribution
-
-- Additional instrument integrations
-- New optimization algorithms
-- Constraint handling methods
-- Multi-objective optimization
-- Distributed SDL coordination
-- Documentation improvements
-
----
+Contributions, bug reports and questions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Please report bugs and request features through [GitHub Issues](https://github.com/Oluwaseun-O-Ajayi/sdl-framework/issues); the author aims to respond within two weeks.
 
 ## License
 
@@ -416,35 +339,9 @@ Chemistry PhD Researcher specializing in:
 
 ---
 
-## Project Statistics
-
-![GitHub stars](https://img.shields.io/github/stars/Oluwaseun-O-Ajayi/sdl-framework?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Oluwaseun-O-Ajayi/sdl-framework?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/Oluwaseun-O-Ajayi/sdl-framework?style=social)
-
----
-
 ## Roadmap
 
-### Version 1.0 (Current)
--  Core Bayesian optimization engine
--  Basic instrument integration framework
--  Example workflows and documentation
--  Publication-ready protocols
-
-### Version 1.1 (Q1 2025)
--  Multi-objective optimization
--  Advanced constraint handling
--  Real-time experiment monitoring dashboard
--  Cloud deployment support
-
-### Version 2.0 (Q2 2025)
--  Distributed SDL coordination
--  Active learning with neural networks
--  Automated literature integration
--  Transfer learning across campaigns
-
----
+Planned extensions, without fixed dates: batch (parallel) proposals, multi-objective optimization, categorical parameters, and adapters for instrument-control software. See [CHANGELOG.md](CHANGELOG.md) for released changes.
 
 ## Quick Links
 

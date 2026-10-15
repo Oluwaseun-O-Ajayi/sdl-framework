@@ -1,8 +1,8 @@
 """
-Examples for Autonomous Drug Discovery Lab
+Examples for SDL Framework
 
 Demonstrates SDL workflows for various pharmaceutical research applications.
 
 Author: Oluwaseun O. Ajayi
-Email: seunolanikeajayi@gmail.com
+Email: oluwaseun.ajayi@uga.edu
 """

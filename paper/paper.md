@@ -51,7 +51,7 @@ SDL Framework provides a working, tested reference for closed-loop experimental 
 
 # AI usage disclosure
 
-Generative AI (Claude, Anthropic) was used in October 2026 to review the code, refactor the orchestrator and experiment designer, write the test suite and continuous-integration configuration, revise the documentation, and draft this paper. The author reviewed every change, ran the tests and examples, checked all references against their sources, and made the design decisions.
+Claude Opus 5.5 (Anthropic) was used in October 2026 for code review, refactoring, test writing and revision of this paper. The author reviewed, ran and verified all changes and takes full responsibility for the software and the paper.
 
 # Acknowledgements
 

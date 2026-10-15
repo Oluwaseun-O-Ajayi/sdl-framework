@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Complete Example: Autonomous Enzyme Optimization
-Demonstrates end-to-end SDL workflow for enzymatic reaction optimization
+Example: closed-loop optimization of a simulated enzymatic reaction.
+The "experiment" is a simulator with known optimum, so the campaign can be checked against the truth.
 
 Author: Oluwaseun O. Ajayi
 License: MIT
@@ -219,38 +219,28 @@ def visualize_results(sdl: SDLOrchestrator, results: dict, output_dir: Path):
             cbar = plt.colorbar(scatter, ax=ax)
             cbar.set_label('Velocity (μM/min)', fontsize=10)
     
-    # Plot 7: Performance Metrics
+    # Plot 7: campaign summary
     ax7 = fig.add_subplot(gs[2, 2])
-    
-    # Calculate metrics
-    n_exp = results['campaign_summary']['completed_experiments']
-    grid_search_exp = 10 ** 4  # 10 levels per parameter, 4 parameters
-    efficiency = (grid_search_exp - n_exp) / grid_search_exp * 100
-    time_saved = (grid_search_exp - n_exp) * 30 / 60  # hours
-    
+    summary = results['campaign_summary']
     metrics_text = f"""
-    PERFORMANCE METRICS
-    
-    Experiments: {n_exp}
-    vs Grid Search: {grid_search_exp}
-    
-    Efficiency: {efficiency:.1f}%
-    Experiments Saved: {grid_search_exp - n_exp}
-    
-    Time Saved: {time_saved:.0f} hours
-                ({time_saved/24:.1f} days)
-    
-    Optimal Velocity:
-    {results['best_result']['objective_value']:.2f} μM/min
+    CAMPAIGN SUMMARY
+
+    Experiments: {summary['completed_experiments']}
+    Initial design: {sdl.config.n_initial_experiments}
+    Acquisition: {summary['acquisition_function']}
+    Model-guided: {summary['iterations']}
+
+    Best observed velocity:
+    {results['best_result']['objective_value']:.2f} uM/min
     """
-    
+
     ax7.text(0.1, 0.5, metrics_text, fontsize=11, 
              verticalalignment='center', family='monospace',
              bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
     ax7.axis('off')
     
     # Overall title
-    fig.suptitle('Autonomous Enzyme Optimization Results', 
+    fig.suptitle('Simulated enzyme optimization campaign', 
                 fontsize=16, fontweight='bold', y=0.995)
     
     # Save figure
@@ -265,8 +255,7 @@ def main():
     """Main execution function"""
     
     print("="*70)
-    print("AUTONOMOUS DRUG DISCOVERY LAB")
-    print("Enzyme Optimization Example")
+    print("SDL Framework: simulated enzyme optimization example")
     print("="*70)
     
     # Configure optimization
@@ -281,8 +270,10 @@ def main():
         n_initial_experiments=12,
         max_iterations=35,
         convergence_threshold=0.01,
-        exploration_weight=0.1
+        patience=8,
+        random_state=42,
     )
+    np.random.seed(42)  # the simulator's measurement noise
     
     print("\nOptimization Configuration:")
     print(f"  Objective: {config.objective}")
@@ -341,32 +332,25 @@ def main():
     print(f"\n✓ Creating visualizations...")
     visualize_results(sdl, results, Path("enzyme_optimization_output"))
     
-    # Calculate efficiency metrics
+    # Compare with random sampling at the same budget (same simulator, 20 repeats)
     n_exp = summary['completed_experiments']
-    grid_exp = 10 ** 4
-    efficiency = (grid_exp - n_exp) / grid_exp * 100
-    time_saved = (grid_exp - n_exp) * 30 / 60 / 24  # days
-    
+    rng = np.random.default_rng(0)
+    random_best = []
+    for _ in range(20):
+        values = []
+        for _ in range(n_exp):
+            params = {k: rng.uniform(lo, hi) for k, (lo, hi) in config.parameter_space.items()}
+            values.append(analyze_results(execute_experiment(params))['objective_value'])
+        random_best.append(max(values))
+
     print(f"\n{'='*70}")
-    print("EFFICIENCY ANALYSIS")
+    print("COMPARISON WITH RANDOM SAMPLING (same number of experiments)")
     print(f"{'='*70}")
-    print(f"  SDL experiments:       {n_exp}")
-    print(f"  Grid search would need: {grid_exp:,}")
-    print(f"  Efficiency gain:       {efficiency:.1f}%")
-    print(f"  Experiments saved:     {grid_exp - n_exp:,}")
-    print(f"  Time saved:            {time_saved:.1f} days")
-    print(f"  Cost savings:          ${(grid_exp - n_exp) * 50:,.0f}")
-    
-    print(f"\n{'='*70}")
-    print("READY FOR PUBLICATION")
-    print(f"{'='*70}")
-    print("All results, data, and figures are publication-ready.")
-    print("Next steps:")
-    print("  1. Validate optimal conditions experimentally (n=6)")
-    print("  2. Include in Current Protocols manuscript")
-    print("  3. Add to GitHub repository as case study")
-    print(f"\nOutput directory: {sdl.output_dir}")
-    print(f"{'='*70}\n")
+    print(f"  Experiments per campaign:            {n_exp}")
+    print(f"  Best value, Bayesian optimization:   {best['objective_value']:.2f}")
+    print(f"  Best value, random sampling (n=20):  {np.mean(random_best):.2f} +/- {np.std(random_best):.2f}")
+    print(f"  Stop reason: {summary['stop_reason']}")
+    print(f"\nOutput directory: {sdl.output_dir}\n")
 
 
 if __name__ == "__main__":

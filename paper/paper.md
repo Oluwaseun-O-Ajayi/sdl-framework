@@ -49,6 +49,10 @@ The repository includes a simulated enzymatic reaction with a known optimum, use
 
 SDL Framework provides a working, tested reference for closed-loop experimental optimization that can be used to plan campaigns in simulation before instrument time is committed, to teach Bayesian experimental design with a code base students can read in one sitting, and to connect existing analysis code to an optimization loop through two functions. The bundled example and \autoref{fig:campaign} show the expected behavior on a problem with a known answer. The framework has not yet been validated on a physical instrument, and claims about experimental savings in any specific application require that validation.
 
+# AI usage disclosure
+
+The author designed and wrote the original version of this software in January 2026, and wrote this paper. In October 2026, Claude Opus 5.5 (Anthropic) was used for code review, refactoring, and testing. The author directed and verified all changes and takes full responsibility for the work.
+
 # Acknowledgements
 
 This work was conducted independently and received no specific funding from any agency in the public, commercial, or not-for-profit sectors.

@@ -186,3 +186,6 @@ personal_notes/
 *_internal.md
 # keep the JOSS paper figure
 !paper/figure.png
+
+# Keep the saved case-study results (see examples/CASE_STUDIES.md)
+!examples/case_study_results/*.csv

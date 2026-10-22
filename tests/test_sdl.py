@@ -1,5 +1,10 @@
 """Tests for the SDL Framework core: acquisition functions, designs, model updates and campaigns."""
 
+import os
+import subprocess
+import sys
+from pathlib import Path
+
 import numpy as np
 import pytest
 
@@ -179,3 +184,15 @@ def test_invalid_configuration_is_rejected():
         OptimizationConfig(objective="best", parameter_space=BOUNDS)
     with pytest.raises(ValueError):
         ExperimentDesigner(DesignSpace(BOUNDS), acquisition_type="XYZ")
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+@pytest.mark.parametrize("script", sorted(p.name for p in (ROOT / "examples").glob("case_study_*.py")))
+def test_case_studies_run(script, tmp_path):
+    """Each case study runs end to end (one seed; the documented results use ten)."""
+    env = dict(os.environ, MPLBACKEND="Agg", PYTHONIOENCODING="utf-8", SDL_CASE_STUDY_SEEDS="1")
+    proc = subprocess.run([sys.executable, str(ROOT / "examples" / script)], cwd=tmp_path, env=env,
+                          capture_output=True, text=True, timeout=900)
+    assert proc.returncode == 0, proc.stderr[-2000:]

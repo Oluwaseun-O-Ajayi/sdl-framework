@@ -102,6 +102,8 @@ pip install .            # or: pip install ".[test]" to include the test depende
 python examples/enzyme_optimization_example.py
 ```
 
+Four reproducible case studies that measure campaign performance against known optima are described in [`examples/CASE_STUDIES.md`](examples/CASE_STUDIES.md).
+
 ### Running the tests
 
 ```bash

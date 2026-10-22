@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 (2026-10)
+
+### Changed
+- Paper: added an AI usage disclosure.
+
 ## 1.1.0 (2026-10)
 
 ### Fixed
